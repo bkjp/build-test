@@ -1,0 +1,46 @@
+// {
+//   "extends": "expo/tsconfig.base",
+//   "compilerOptions": {
+//     "strict": true,
+//     "paths": {
+//       "@/*": [
+//         "./*"
+//       ]
+//     }
+//   },
+//   "include": [
+//     "**/*.ts",
+//     "**/*.tsx",
+//     ".expo/types/**/*.ts",
+//     "expo-env.d.ts"
+//   ]
+// }
+
+{
+  "extends": "expo/tsconfig.base",
+  "compilerOptions": {
+    "strict": true,
+    "moduleResolution": "node",
+    "useUnknownInCatchVariables": false,
+    "moduleSuffixes": [".native", ".web", ""],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    }
+  },
+
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "src/services/axios/drafts.js",
+    "android-material.plugins.ts",
+    ".expo/types/**/*.ts",
+    "expo-env.d.ts",
+    "./configs/*.ts",
+    "configs/envs/env-vars.ts",
+    "metro.config.js",
+    "declarations.d.ts",
+    "drafts/templates/persistence-zustand-store.js"
+  ],
+  "exclude": [".git", "node_modules"]
+}

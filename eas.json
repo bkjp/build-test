@@ -1,0 +1,58 @@
+{
+  "cli": {
+    "version": ">= 5.9.3",
+    "appVersionSource": "remote"
+  },
+
+  "build": {
+    "base": {
+      "android": {
+        "image": "latest"
+      },
+      "ios": {
+        "image": "latest"
+      }
+    },
+    "development": {
+      "extends": "base",
+      "env": {
+        "EXPO_PUBLIC_API_URL": "https://localhost:8000",
+        "EXPO_PUBLIC_API_URL_IO": "https://localhost:8000"
+      },
+      "channel": "development",
+      "developmentClient": true,
+      "distribution": "internal",
+      "ios": {
+        "simulator": true,
+        "resourceClass": "medium",
+        "buildConfiguration": "Debug",
+        "scheme": "myapp-dev"
+      },
+      "android": {
+        "buildType": "apk",
+        "resourceClass": "default"
+      }
+    },
+    "preview": {
+      "extends": "base",
+      "channel": "preview",
+      "distribution": "internal"
+    },
+
+    "production": {
+      "extends": "base",
+      "channel": "production",
+      "distribution": "store",
+      "autoIncrement": true,
+      "ios": {
+        "buildConfiguration": "Release",
+        "scheme": "kamride"
+      },
+      "android": {
+        "buildType": "app-bundle",
+        "withoutCredentials": false,
+        "gradleCommand": ":app:bundleRelease"
+      }
+    }
+  }
+}
